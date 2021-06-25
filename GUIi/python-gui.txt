@@ -1,0 +1,982 @@
+from tkinter import *
+mahmudul_root = Tk()
+mahmudul_root.geometry("1255x944")
+photo = PhotoImage(file="1.png")
+varun_label = Label(image=photo)
+varun_label.pack()
+mahmudul_root.mainloop()
+
+****First Day*****
+# padx - x padding
+# pady - y padding
+# relief - border styling - SUNKEN, RAISED, GROOVE, RIDGE
+
+title_label = Label(text ='''
+Abdul Rashid Salim Salman Khan is an Indian
+\nfilm actor, producer, occasional playback singer and television personality. In a film career spanning
+\nalmost thirty years, Khan has received numerous awards, including two National Film Awards as a film
+\nproducer, and two Filmfare Awards for acting. He has a significant following in Asia and the Indian
+\ndiaspora worldwide, and is cited in the media as one of the most commercially successful actors of Indian
+\ncinema. According to the Forbes 2018 list of Top-Paid 100 Celebrity Entertainers in world, Khan was
+\nthe highest ranked Indian with 82nd rank with earnings of $37.7 million.''', bg ="red", fg="white", padx=13,
+ pady=94, font="comicsansms 9 bold", borderwidth=3, relief=SUNKEN)
+
+# Important Pack options
+# anchor = nw
+# side = top, bottom, left, right
+# fill
+# padx
+# pady
+
+# title_label.pack(side=BOTTOM, anchor ="sw", fill=X)
+title_label.pack(side=LEFT, fill=Y, padx=34, pady=34)
+root.mainloop()
+****2nd day*****
+from tkinter import *
+root = Tk()
+root.geometry("655x333")
+f1 = Frame(root, bg="grey", borderwidth=6, relief=SUNKEN)
+f1.pack(side=LEFT, fill="y")
+
+f2 = Frame(root, borderwidth=8, bg="grey", relief=SUNKEN)
+f2.pack(side=TOP, fill="x")
+
+l = Label(f1, text="Project Tkinter - Pycharm")
+l.pack( pady=142)
+
+l = Label(f2, text="Welcome to sublime text", font="Helvetica 16 bold", fg="red", pady=22)
+l.pack()
+
+root.mainloop()
+
+****3rd day****
+
+from tkinter import *
+
+root =Tk()
+root.geometry("655x333")
+
+def hello():
+    print("Hello tkinter Buttons")
+
+def name():
+    print("Name is harry")
+
+frame = Frame(root, borderwidth=6, bg="grey", relief=SUNKEN)
+frame.pack(side=LEFT, anchor="nw")
+
+b1 = Button(frame, fg="red", text="Print now", command=hello)
+b1.pack(side=LEFT, padx=23)
+
+b2 = Button(frame, fg="red", text="Tell me name now", command=name)
+b2.pack(side=LEFT, padx=23)
+
+b3 = Button(frame, fg="red", text="Print now")
+b3.pack(side=LEFT, padx=23)
+
+b4 = Button(frame, fg="red", text="Print now")
+b4.pack(side=LEFT, padx=23)
+root.mainloop()
+
+
+***4th***
+from tkinter import *
+
+def getvals():
+    print(f"The value of username is {uservalue.get()}")
+    print(f"The value of password is {passvalue.get()}")
+
+
+root = Tk()
+root.geometry("655x333")
+
+user = Label(root, text="Username")
+password = Label(root, text="Password")
+user.grid()
+password.grid(row=1)
+
+# Variable classes in tkinter
+# BooleanVar, DoubleVar, IntVar, StringVar
+
+uservalue = StringVar()
+passvalue = StringVar()
+
+userentry = Entry(root, textvariable = uservalue)
+passentry = Entry(root, textvariable = passvalue)
+
+userentry.grid(row=0, column=1)
+passentry.grid(row=1, column=1)
+
+Button(text="Submit", command=getvals).grid()
+
+root.mainloop()
+**5th***
+from tkinter import *
+
+root = Tk()
+
+def getvals():
+    print("It works!")
+root.geometry("644x344")
+#Heading
+Label(root, text="Welcome to Harry Travels", font="comicsansms 13 bold", pady=15).grid(row=0, column=3)
+
+#Text for our form
+name = Label(root, text="Name")
+phone = Label(root, text="Phone")
+gender = Label(root, text="Gender")
+emergency = Label(root, text="Emergency Contact")
+paymentmode = Label(root, text="Payment Mode")
+
+#Pack text for our form
+name.grid(row=1, column=2)
+phone.grid(row=2, column=2)
+gender.grid(row=3, column=2)
+emergency.grid(row=4, column=2)
+paymentmode.grid(row=5, column=2)
+
+# Tkinter variable for storing entries
+namevalue = StringVar()
+phonevalue = StringVar()
+gendervalue = StringVar()
+emergencyvalue = StringVar()
+paymentmodevalue = StringVar()
+foodservicevalue = IntVar()
+
+
+#Entries for our form
+nameentry = Entry(root, textvariable=namevalue)
+phoneentry = Entry(root, textvariable=phonevalue)
+genderentry = Entry(root, textvariable=gendervalue)
+emergencyentry = Entry(root, textvariable=emergencyvalue)
+paymentmodeentry = Entry(root, textvariable=paymentmodevalue)
+
+# Packing the Entries
+nameentry.grid(row=1, column=3)
+phoneentry.grid(row=2, column=3)
+genderentry.grid(row=3, column=3)
+emergencyentry.grid(row=4, column=3)
+paymentmodeentry.grid(row=5, column=3)
+
+#Checkbox & Packing it
+foodservice = Checkbutton(text="Want to prebook your meals?", variable = foodservicevalue)
+foodservice.grid(row=6, column=3)
+
+#Button & packing it and assigning it a command
+Button(text="Submit to Harry Travels", command=getvals).grid(row=7, column=3)
+
+
+
+root.mainloop()
+***6th**
+
+from tkinter import *
+
+root = Tk()
+
+def getvals():
+    print("Submitting form")
+
+    print(f"{namevalue.get(), phonevalue.get(), gendervalue.get(), emergencyvalue.get(), paymentmodevalue.get(), foodservicevalue.get()} ")
+
+
+
+    with open("records.txt", "a") as f:
+        f.write(f"{namevalue.get(), phonevalue.get(), gendervalue.get(), emergencyvalue.get(), paymentmodevalue.get(), foodservicevalue.get()}\n ")
+
+
+
+root.geometry("644x344")
+#Heading
+Label(root, text="Welcome to Harry Travels", font="comicsansms 13 bold", pady=15).grid(row=0, column=3)
+
+#Text for our form
+name = Label(root, text="Name")
+phone = Label(root, text="Phone")
+gender = Label(root, text="Gender")
+emergency = Label(root, text="Emergency Contact")
+paymentmode = Label(root, text="Payment Mode")
+
+#Pack text for our form
+name.grid(row=1, column=2)
+phone.grid(row=2, column=2)
+gender.grid(row=3, column=2)
+emergency.grid(row=4, column=2)
+paymentmode.grid(row=5, column=2)
+
+# Tkinter variable for storing entries
+namevalue = StringVar()
+phonevalue = StringVar()
+gendervalue = StringVar()
+emergencyvalue = StringVar()
+paymentmodevalue = StringVar()
+foodservicevalue = IntVar()
+
+
+#Entries for our form
+nameentry = Entry(root, textvariable=namevalue)
+phoneentry = Entry(root, textvariable=phonevalue)
+genderentry = Entry(root, textvariable=gendervalue)
+emergencyentry = Entry(root, textvariable=emergencyvalue)
+paymentmodeentry = Entry(root, textvariable=paymentmodevalue)
+
+# Packing the Entries
+nameentry.grid(row=1, column=3)
+phoneentry.grid(row=2, column=3)
+genderentry.grid(row=3, column=3)
+emergencyentry.grid(row=4, column=3)
+paymentmodeentry.grid(row=5, column=3)
+
+#Checkbox & Packing it
+foodservice = Checkbutton(text="Want to prebook your meals?", variable = foodservicevalue)
+foodservice.grid(row=6, column=3)
+
+#Button & packing it and assigning it a command
+Button(text="Submit to Harry Travels", command=getvals).grid(row=7, column=3)
+
+
+
+root.mainloop()
+
+****7th**
+
+from tkinter import *
+
+root = Tk()
+
+canvas_width = 800
+canvas_height = 400
+
+root.geometry(f"{canvas_width}x{canvas_height}")
+root.title("Harry Ka GUI")
+can_widget = Canvas(root, width=canvas_width, height=canvas_height)
+can_widget.pack()
+
+# The line goes from the point x1, y1 to x2, y2
+can_widget.create_line(0, 0, 800, 400, fill="red")
+can_widget.create_line(0, 400, 800, 0, fill="red")
+
+# To create a rectangle specify parameters in this order - coors of top left and coors of bottom right
+can_widget.create_rectangle(3, 5, 700, 300, fill="blue")
+
+can_widget.create_text(200, 200, text="python")
+
+can_widget.create_oval(344,233,244,355)
+
+
+root.mainloop()
+
+
+***8th***
+from tkinter import *
+
+def harry(event):
+    print(f"You clicked on the button at {event.x}, {event.y}")
+
+root = Tk()
+root.title("Events in Tkinter")
+root.geometry("644x334")
+
+widget = Button(root, text='Click me please')
+widget.pack()
+
+widget.bind('<Button-1>', harry)
+widget.bind('<Double-1>', quit)
+root.mainloop()
+***9th****
+
+from tkinter import *
+from PIL import  ImageTk, Image
+
+def every_100(text):
+    final_text = ""
+    for i in range(0, len(text)):
+        final_text +=text[i]
+        if i%100==0 and i!=0:
+            final_text += "\n"
+    return final_text
+
+
+
+root = Tk()
+root.title("CodeWithHarry News - Aapka Apna Akhabaar")
+root.geometry("1000x1000")
+
+texts = []
+photos = []
+for i in range(0, 3):
+    with open(f"{i+1}.txt") as f:
+        text = f.read()
+        texts.append(every_100(text))
+
+    image = Image.open(f"{i+1}.png")
+    #TODO: Resize these images
+    image = image.resize((225, 265), Image.ANTIALIAS)
+    photos.append(ImageTk.PhotoImage(image))
+
+f0 = Frame(root, width=800, height=70)
+Label(f0, text="Code With Harry News", font="lucida 33 bold").pack()
+Label(f0, text="January 19, 2050", font="lucida 13 bold").pack()
+f0.pack()
+
+
+f1 = Frame(root, width=900, height=200, pady=14)
+Label(f1, text=texts[0], padx=22, pady=22).pack(side="left")
+Label(f1, image=photos[0], anchor="e").pack()
+f1.pack(anchor="w")
+
+
+f2 = Frame(root, width=900, height=200, pady=14, padx=22)
+Label(f2, text=texts[1], padx=22, pady=22).pack(side="right")
+Label(f2, image=photos[1], anchor="e", padx=22).pack()
+f2.pack(anchor="w")
+
+
+f3 = Frame(root, width=900, height=200, pady=34)
+Label(f3, text=texts[2], padx=22, pady=22).pack(side="left")
+Label(f3, image=photos[2], anchor="e").pack()
+f3.pack(anchor="w")
+
+
+
+
+root.mainloop()
+
+
+***10th**
+from tkinter import *
+root = Tk()
+root.geometry("733x566")
+root.title("Pycharm")
+
+def myfunc():
+    print("Mai ek bahut hi natkhat aur shaitaan function hoon")
+
+# #Use these to create a non dropdown menu
+# mymenu = Menu(root)
+# mymenu.add_command(label="File", command=myfunc)
+# mymenu.add_command(label="Exit", command=quit)
+# root.config(menu=mymenu)
+
+
+mainmenu = Menu(root)
+
+m1 = Menu(mainmenu, tearoff=0)
+m1.add_command(label="New project", command=myfunc)
+m1.add_command(label="Save", command=myfunc)
+m1.add_separator()
+m1.add_command(label="Save As", command=myfunc)
+m1.add_command(label="Print", command=myfunc)
+root.config(menu=mainmenu)
+mainmenu.add_cascade(label="File", menu=m1)
+
+m2 = Menu(mainmenu, tearoff=0)
+m2.add_command(label="Cut", command=myfunc)
+m2.add_command(label="Copy", command=myfunc)
+m2.add_separator()
+m2.add_command(label="Paste", command=myfunc)
+m2.add_command(label="Find", command=myfunc)
+root.config(menu=mainmenu)
+mainmenu.add_cascade(label="Edit", menu=m2)
+
+root.mainloop()
+**11th**
+from tkinter import *
+import tkinter.messagebox as tmsg
+root = Tk()
+root.geometry("733x566")
+root.title("Pycharm")
+
+def myfunc():
+    print("Mai ek bahut hi natkhat aur shaitaan function hoon")
+
+def help():
+    print("I will help you")
+    tmsg.showinfo("Help", "Harry will help you with this gui")
+
+def rate():
+    print("Rate us")
+    value = tmsg.askquestion("Was your experience Good?", "You used this gui.. Was your experience Good?")
+    if value == "yes":
+        msg = "Great. Rate us on appstore please"
+    else:
+        msg = "Tell us what went wrong. We will call you soon"
+    tmsg.showinfo("Experience", msg)
+
+def divya():
+    ans = tmsg.askretrycancel("Divya se dosti kar lo", "Sorry divya nahi banegi aapki dost")
+    if ans:
+        print("Retry karne pe bhi kuch nahi hoga")
+
+    else:
+        print("Bahut badiya bhai cancel kar diya warna pitte")
+
+
+mainmenu = Menu(root)
+
+m1 = Menu(mainmenu, tearoff=0)
+m1.add_command(label="New project", command=myfunc)
+m1.add_command(label="Save", command=myfunc)
+m1.add_separator()
+m1.add_command(label="Save As", command=myfunc)
+m1.add_command(label="Print", command=myfunc)
+root.config(menu=mainmenu)
+mainmenu.add_cascade(label="File", menu=m1)
+
+m2 = Menu(mainmenu, tearoff=0)
+m2.add_command(label="Cut", command=myfunc)
+m2.add_command(label="Copy", command=myfunc)
+m2.add_separator()
+m2.add_command(label="Paste", command=myfunc)
+m2.add_command(label="Find", command=myfunc)
+root.config(menu=mainmenu)
+mainmenu.add_cascade(label="Edit", menu=m2)
+
+
+m3 = Menu(mainmenu, tearoff=0)
+m3.add_command(label = "Help", command=help)
+m3.add_command(label = "Rate us", command=rate)
+m3.add_command(label = "Befriend Divya", command=divya)
+mainmenu.add_cascade(label="Help", menu=m3)
+root.config(menu=mainmenu)
+root.mainloop()
+
+****12th***
+from tkinter import *
+import tkinter.messagebox as tmsg
+
+root = Tk()
+root.geometry("455x233")
+root.title("Slider tutorial")
+
+def getdollar():
+    print(f"We have credited {myslider2.get()} dollars to your bank account")
+    tmsg.showinfo("Amount Credited!", f"We have credited {myslider2.get()} dollars to your bank account")
+
+# myslider = Scale(root, from_=0, to=100)
+# myslider.pack()
+Label(root, text="How many dollars do you want?").pack()
+myslider2 = Scale(root, from_=0, to=100, orient=HORIZONTAL, tickinterval=50)
+# myslider2.set(34)
+myslider2.pack()
+
+
+Button(root, text="Get dollars!", pady=10, command=getdollar).pack()
+
+root.mainloop()
+**13th**
+from tkinter import *
+import tkinter.messagebox as tmsg
+
+root = Tk()
+root.geometry("455x233")
+root.title("Radiobutton tutorial")
+
+def order():
+
+    tmsg.showinfo("Order Received!", f"We have received your order for {var.get()}. Thanks for ordering")
+
+# var = IntVar()
+var = StringVar()
+var.set("Radio")
+# var.set(1)
+Label(root, text = "What would you like to have sir?",font="lucida 19 bold",
+      justify=LEFT, padx=14).pack()
+radio = Radiobutton(root, text="Dosa", padx=14, variable=var, value="Dosa").pack(anchor="w")
+radio = Radiobutton(root, text="Idly", padx=14, variable=var, value="Idly").pack(anchor="w")
+radio = Radiobutton(root, text="Paratha", padx=14, variable=var, value="Paratha").pack(anchor="w")
+radio = Radiobutton(root, text="Samosa", padx=14, variable=var, value="Samosa").pack(anchor="w")
+
+Button(text="Order Now", command=order).pack()
+root.mainloop()
+****14th***
+from tkinter import *
+
+def add():
+    global i
+    lbx.insert(ACTIVE, f"{i}")
+    i+=1
+
+i = 0
+root = Tk()
+root.geometry("455x233")
+root.title("Listbox tutorial")
+
+lbx = Listbox(root)
+lbx.pack()
+lbx.insert(END, "First item of our listbox")
+
+Button(root, text="Add Item", command=add).pack()
+
+
+
+
+root.mainloop()
+**15th**
+from tkinter import *
+root = Tk()
+root.geometry("455x233")
+root.title("Scrollbar tutorial")
+# For connecting scrollbar to a widget
+# 1. widget(yscrollcommand = scrollbar.set)
+# 2 scrollbar.config(command=widget.yview)
+scrollbar = Scrollbar(root)
+scrollbar.pack(side=RIGHT, fill=Y)
+
+listbox = Listbox(root, yscrollcommand = scrollbar.set)
+for i in range(344):
+     listbox.insert(END, f"Item {i}")
+
+listbox.pack(fill="both",padx=22)
+#text = Text(root, yscrollcommand = scrollbar.set)
+#text.pack(fill=BOTH)
+scrollbar.config(command=listbox.yview)
+#scrollbar.config(command=text.yview)
+
+root.mainloop()
+
+****16th***
+
+
+
+
+
+**17th**
+from tkinter import *
+
+def upload():
+    statusvar.set("Busy..")
+    sbar.update()
+    import time
+    time.sleep(2)
+    statusvar.set("Ready")
+
+root = Tk()
+root.geometry("455x233")
+root.title("Status bar tutorial")
+
+
+statusvar = StringVar()
+statusvar.set("Ready")
+sbar = Label(root, textvariable=statusvar, relief=SUNKEN, anchor="w")
+sbar.pack(side=BOTTOM, fill=X)
+Button(root, text="Upload", command=upload).pack()
+root.mainloop()
+****18th***
+from tkinter import *
+
+
+class GUI(Tk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("744x377")
+
+    def status(self):
+        self.var = StringVar()
+        self.var.set("Ready")
+        self.statusbar = Label(self, textvar=self.var, relief=SUNKEN, anchor="w")
+        self.statusbar.pack(side=BOTTOM, fill=X)
+
+    def click(self):
+        print("Button clicked")
+
+    def createbutton(self, inptext):
+        Button(text=inptext, command=self.click).pack()
+
+
+if __name__ == '__main__':
+    window = GUI()
+    window.status()
+    window.createbutton("Click me")
+    window.mainloop()
+
+***19***
+
+from tkinter import *
+root = Tk()
+root.geometry("655x444")
+root.title("CodeWithHarry - Title Of My GUI")
+root.wm_iconbitmap("1.ico")
+root.configure(background="grey")
+
+width = root.winfo_screenwidth()
+height = root.winfo_screenheight()
+
+print(f"{width}x{height}")
+Button(text="Close", command = root.destroy).pack()
+
+root.mainloop()
+
+**20***
+
+from tkinter import *
+
+def click(event):
+    global scvalue
+    text = event.widget.cget("text")
+    if text == "=":
+        if scvalue.get().isdigit():
+            value = int(scvalue.get())
+        else:
+            try:
+                value = eval(screen.get())
+
+            except Exception as e:
+                print(e)
+                value = "Error"
+
+
+        scvalue.set(value)
+        screen.update()
+
+    elif text == "C":
+        scvalue.set("")
+        screen.update()
+
+    else:
+        scvalue.set(scvalue.get() + text)
+        screen.update()
+
+
+
+
+
+root = Tk()
+root.geometry("644x970")
+root.title("Calculator By CodeWithHarry")
+root.wm_iconbitmap("1.ico")
+
+scvalue = StringVar()
+scvalue.set("")
+screen = Entry(root, textvar=scvalue, font="lucida 40 bold")
+screen.pack(fill=X, ipadx=8, pady=10, padx=10)
+
+f = Frame(root, bg="grey")
+b = Button(f, text="9", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="8", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="7", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+
+f = Frame(root, bg="grey")
+b = Button(f, text="6", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="5", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="4", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+
+f = Frame(root, bg="grey")
+b = Button(f, text="3", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="2", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="1", padx=28, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+
+f = Frame(root, bg="grey")
+b = Button(f, text="0", padx=31, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="-", padx=31, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="*", padx=31, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+
+f = Frame(root, bg="grey")
+b = Button(f, text="/", padx=33, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="%", padx=21, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="=", padx=27, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+f = Frame(root, bg="grey")
+b = Button(f, text="C", padx=26, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text=".", padx=26, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+b = Button(f, text="00", padx=26, pady=18, font="lucida 35 bold")
+b.pack(side=LEFT, padx=18, pady=5)
+b.bind("", click)
+
+f.pack()
+
+root.mainloop()
+
+***21***
+
+from tkinter import *
+from tkinter.messagebox import showinfo
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+import os
+
+def newFile():
+    global file
+    root.title("Untitled - Notepad")
+    file = None
+    TextArea.delete(1.0, END)
+
+
+def openFile():
+    global file
+    file = askopenfilename(defaultextension=".txt",
+                           filetypes=[("All Files", "*.*"),
+                                     ("Text Documents", "*.txt")])
+    if file == "":
+        file = None
+    else:
+        root.title(os.path.basename(file) + " - Notepad")
+        TextArea.delete(1.0, END)
+        f = open(file, "r")
+        TextArea.insert(1.0, f.read())
+        f.close()
+
+
+def saveFile():
+    global file
+    if file == None:
+        file = asksaveasfilename(initialfile = 'Untitled.txt', defaultextension=".txt",
+                           filetypes=[("All Files", "*.*"),
+                                     ("Text Documents", "*.txt")])
+        if file =="":
+            file = None
+
+        else:
+            #Save as a new file
+            f = open(file, "w")
+            f.write(TextArea.get(1.0, END))
+            f.close()
+
+            root.title(os.path.basename(file) + " - Notepad")
+            print("File Saved")
+    else:
+        # Save the file
+        f = open(file, "w")
+        f.write(TextArea.get(1.0, END))
+        f.close()
+
+
+def quitApp():
+    root.destroy()
+
+def cut():
+    TextArea.event_generate(("<>"))
+
+def copy():
+    TextArea.event_generate(("<>"))
+
+def paste():
+    TextArea.event_generate(("<>"))
+
+def about():
+    showinfo("Notepad", "Notepad by Code With Harry")
+
+if __name__ == '__main__':
+    #Basic tkinter setup
+    root = Tk()
+    root.title("Untitled - Notepad")
+    root.wm_iconbitmap("1.ico")
+    root.geometry("644x788")
+
+    #Add TextArea
+    TextArea = Text(root, font="lucida 13")
+    file = None
+    TextArea.pack(expand=True, fill=BOTH)
+
+    # Lets create a menubar
+    MenuBar = Menu(root)
+
+    #File Menu Starts
+    FileMenu = Menu(MenuBar, tearoff=0)
+    # To open new file
+    FileMenu.add_command(label="New", command=newFile)
+
+    #To Open already existing file
+    FileMenu.add_command(label="Open", command = openFile)
+
+    # To save the current file
+
+    FileMenu.add_command(label = "Save", command = saveFile)
+    FileMenu.add_separator()
+    FileMenu.add_command(label = "Exit", command = quitApp)
+    MenuBar.add_cascade(label = "File", menu=FileMenu)
+    # File Menu ends
+
+    # Edit Menu Starts
+    EditMenu = Menu(MenuBar, tearoff=0)
+    #To give a feature of cut, copy and paste
+    EditMenu.add_command(label = "Cut", command=cut)
+    EditMenu.add_command(label = "Copy", command=copy)
+    EditMenu.add_command(label = "Paste", command=paste)
+
+    MenuBar.add_cascade(label="Edit", menu = EditMenu)
+
+    # Edit Menu Ends
+
+    # Help Menu Starts
+    HelpMenu = Menu(MenuBar, tearoff=0)
+    HelpMenu.add_command(label = "About Notepad", command=about)
+    MenuBar.add_cascade(label="Help", menu=HelpMenu)
+
+    # Help Menu Ends
+
+    root.config(menu=MenuBar)
+
+    #Adding Scrollbar using rules from Tkinter lecture no 22
+    Scroll = Scrollbar(TextArea)
+    Scroll.pack(side=RIGHT,  fill=Y)
+    Scroll.config(command=TextArea.yview)
+    TextArea.config(yscrollcommand=Scroll.set)
+
+    root.mainloop()
+
+***22****
+
+end TKINTER
+
+
+
+
+********calllllllllllll*****
+from tkinter import *
+
+# Let's create the Tkinter window
+window = Tk()
+
+# Then, you will define the size of the window in width(312) and height(324) using the 'geometry' method
+window.geometry("312x324")
+
+# In order to prevent the window from getting resized you will call 'resizable' method on the window
+window.resizable(0, 0)
+
+#Finally, define the title of the window
+window.title("Calcualtor")
+
+
+# Let's now define the required functions for the Calculator to function properly.
+
+# 1. First is the button click 'btn_click' function which will continuously update the input field whenever a number is entered or any button is pressed it will act as a button click update.
+def btn_click(item):
+    global expression
+    expression = expression + str(item)
+    input_text.set(expression)
+
+# 2. Second is the button clear 'btn_clear' function clears the input field or previous calculations using the button "C"
+def btn_clear():
+    global expression
+    expression = ""
+    input_text.set("")
+
+# 3. Third and the final function is button equal ("=") 'btn_equal' function which will calculate the expression present in input field. For example: User clicks button 2, + and 3 then clicks "=" will result in an output 5.
+def btn_equal():
+    global expression
+    result = str(eval(expression)) # 'eval' function is used for evaluating the string expressions directly
+    # you can also implement your own function to evalute the expression istead of 'eval' function
+    input_text.set(result)
+    expression = ""
+
+expression = ""
+# In order to get the instance of the input field 'StringVar()' is used
+input_text = StringVar()
+
+# Once all the functions are defined then comes the main section where you will start defining the structure of the calculator inside the GUI.
+
+# The first thing is to create a frame for the input field
+input_frame = Frame(window, width = 312, height = 50, bd = 0, highlightbackground = "black", highlightcolor = "black", highlightthickness = 1)
+input_frame.pack(side = TOP)
+
+
+# Then you will create an input field inside the 'Frame' that was created in the previous step. Here the digits or the output will be displayed as 'right' aligned
+input_field = Entry(input_frame, font = ('arial', 18, 'bold'), textvariable = input_text, width = 50, bg = "#eee", bd = 0, justify = RIGHT)
+input_field.grid(row = 0, column = 0)
+input_field.pack(ipady = 10) # 'ipady' is an internal padding to increase the height of input field
+
+
+# Once you have the input field defined then you need a separate frame which will incorporate all the buttons inside it below the 'input field'
+btns_frame = Frame(window, width = 312, height = 272.5, bg = "grey")
+btns_frame.pack()
+
+
+# The first row will comprise of the buttons 'Clear (C)' and 'Divide (/)'
+clear = Button(btns_frame, text = "C", fg = "black", width = 32, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_clear()).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
+divide = Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("/")).grid(row = 0, column = 3, padx = 1, pady = 1)
+
+
+# The second row will comprise of the buttons '7', '8', '9' and 'Multiply (*)'
+seven = Button(btns_frame, text = "7", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(7)).grid(row = 1, column = 0, padx = 1, pady = 1)
+eight = Button(btns_frame, text = "8", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(8)).grid(row = 1, column = 1, padx = 1, pady = 1)
+nine = Button(btns_frame, text = "9", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(9)).grid(row = 1, column = 2, padx = 1, pady = 1)
+multiply = Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("*")).grid(row = 1, column = 3, padx = 1, pady = 1)
+
+
+# The third row will comprise of the buttons '4', '5', '6' and 'Subtract (-)'
+four = Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(4)).grid(row = 2, column = 0, padx = 1, pady = 1)
+five = Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(5)).grid(row = 2, column = 1, padx = 1, pady = 1)
+six = Button(btns_frame, text = "6", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(6)).grid(row = 2, column = 2, padx = 1, pady = 1)
+minus = Button(btns_frame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("-")).grid(row = 2, column = 3, padx = 1, pady = 1)
+
+
+# The fourth row will comprise of the buttons '1', '2', '3' and 'Addition (+)'
+one = Button(btns_frame, text = "1", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(1)).grid(row = 3, column = 0, padx = 1, pady = 1)
+two = Button(btns_frame, text = "2", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(2)).grid(row = 3, column = 1, padx = 1, pady = 1)
+three = Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(3)).grid(row = 3, column = 2, padx = 1, pady = 1)
+plus = Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("+")).grid(row = 3, column = 3, padx = 1, pady = 1)
+
+
+# Finally, the fifth row will comprise of the buttons '0', 'Decimal (.)', and 'Equal To (=)'
+zero = Button(btns_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(0)).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
+point = Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
+equals = Button(btns_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_equal()).grid(row = 4, column = 3, padx = 1, pady = 1)
+
+
+window.mainloop()
+
+
+
+***end ****
+
+
